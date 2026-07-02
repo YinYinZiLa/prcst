@@ -7,6 +7,29 @@ Pev 的核心并不是让某一个 AI 一次性完成整个项目，而是把项
 这个结构最关键的地方在于：**每一次循环不仅会生成代码，也会生成新的 Pev 部分。**
 代码和 Pev 会一起自增，形成一个可继续扩展的项目骨架。
 
+```text
+需求
+→ 上游 AI 生成 Plan-1
+→ 注册表记录 Plan-1
+→ 下游 AI 写 Pev.mini-1
+→ Pevcompiler 编译 / 修理 Pev.hard-1
+→ 生成 AI-facing AST
+→ 生成 Pevh/s
+→ 生成 Pevh/t
+→ 生成 ToaiPev / Pev Prompt
+→ 代码生成 AI 生成 Code-1
+→ 评分 AI 打分
+→ 打包 Code-1
+→ PevExecutor 创建沙箱
+→ 沙箱执行 Code-1
+→ Pevrunner / PevExecutor 验证结果
+→ 备份代码、日志、评分、运行记录
+→ 销毁沙箱
+→ 回写方案注册表
+→ 标记 Plan-1 可用 / 被否 / 需修复
+→ 可用则合并，失败则丢弃或修复
+```
+
 ---
 
 ## 一、术语解释
